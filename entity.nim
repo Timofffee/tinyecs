@@ -1,9 +1,14 @@
+import strutils
+
 proc newEntity* : Entity =
   inc maxEntityId
   Entity(id: maxEntityId, components: newSeq[Component]())
 
 proc id* (e:Entity): int =
   e.id
+
+proc `$`* (e:Entity): string =
+  "<Entity id=$1>".format(e.id)
 
 proc addComponent* [T](e:Entity, c:T) =
   echo type(T).name()

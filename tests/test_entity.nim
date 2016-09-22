@@ -26,3 +26,7 @@ suite "entity test":
     check(x2.data == 10)
     let x3 = e.get1(Health)
     check(x3.amount == 90)
+
+  test "misc":
+    let e = newEntity()
+    echo e
