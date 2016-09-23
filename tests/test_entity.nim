@@ -22,10 +22,12 @@ suite "entity test":
 
     let x1 = (TestComponent)e.getComponent(c1)
     check(x1.data == 10)
-    let x2 = e.get1(TestComponent())
+    let x2 = e.get(TestComponent())
     check(x2.data == 10)
     let x3 = e.get(Health)
     check(x3.amount == 90)
+    let x4 = (Health)e.get("Health")
+    check(x4.amount == 90)
 
   test "misc":
     let e = newEntity()
