@@ -1,9 +1,20 @@
 import strutils
 
-proc newEntity* : Entity =
-  inc maxEntityId
-  Entity(id: maxEntityId, components: newSeq[Component]())
+# forward decl.
+proc initEntity* (e: Entity)
 
+proc newEntity* : Entity =
+  #inc maxEntityId
+  #Entity(id: maxEntityId, components: newSeq[Component]())
+  let e = Entity()
+  e.initEntity()
+  e
+
+proc initEntity* (e:Entity) =
+  inc maxEntityId
+  e.id = maxEntityId
+  e.components = newSeq[Component]()
+  
 proc id* (e:Entity): int =
   e.id
 

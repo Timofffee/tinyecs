@@ -5,6 +5,8 @@ author        = "coaljoe"
 description   = "ecs"
 license       = "MIT"
 
+#srcDir        = "src"
+
 # Dependencies
 
 requires "nim >= 0.14.3"
