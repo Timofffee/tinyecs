@@ -19,7 +19,7 @@ proc id* (e:Entity): int =
   e.id
 
 proc `$`* (e:Entity): string =
-  "<Entity id=$1>".format(e.id)
+  "Entity<id=$1>".format(e.id)
 
 proc addComponent* [T](e:Entity, c:T) =
   echo type(T).name()
