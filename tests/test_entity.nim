@@ -4,6 +4,7 @@ import ../ecs
 type
   TestComponent = ref object of Component
     data: int
+    name: string
 
   Health = ref object of Component
     amount: int

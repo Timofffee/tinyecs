@@ -22,9 +22,12 @@ proc `$`* (e:Entity): string =
   "Entity<id=$1>".format(e.id)
 
 proc addComponent* [T](e:Entity, c:T) =
-  echo type(T).name()
+  #echo T
+  #echo T.name
+  #echo type(T).name()
   c.entity = e
-  c.typename = T.name
+  #c.typename = T.name()
+  c.typename = nam(T)
   e.components.add(c)
 
 proc getComponent* (e:Entity, c:Component): Component =
@@ -47,3 +50,8 @@ proc get* (e:Entity, ctype: string): Component =
   for x in e.components:
     if x.typename == ctype:
       return x
+
+proc hasComponent*[T](e: Entity, ctype: typedesc[T]): bool =
+  for x in e.components:
+    if x.typename == type(T).name:
+      return true

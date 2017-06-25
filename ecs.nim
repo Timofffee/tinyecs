@@ -1,5 +1,8 @@
 #import typeinfo
-import typetraits
+import typetraits as tt
+
+proc nam [T](x: typedesc[T]): string =
+  tt.name(x)
 
 var
   maxEntityId = -1
