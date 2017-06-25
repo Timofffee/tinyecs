@@ -39,3 +39,8 @@ proc get* (e:Entity, ctype: string): Component =
   for x in e.components:
     if x.typename == ctype:
       return x
+
+proc hasComponent*[T](e: Entity, ctype: typedesc[T]): bool =
+  for x in e.components:
+    if x.typename == type(T).name:
+      true
