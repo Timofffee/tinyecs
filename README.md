@@ -3,7 +3,7 @@ Fork https://gitlab.com/coaljoe/nim-ecs
 
 ## #USAGE
 ```Nim
-import ecs
+import tinyecs
 
 type
   TestComponent = ref object of Component
@@ -21,14 +21,17 @@ e.addComponent(c2)
 
 let x1 = (TestComponent)e.getComponent(c1)
 assert x1.data == 10
-let x2 = e.get(TestComponent())
+let x2 = e.getComponent(TestComponent())
 assert x2.data == 10
-let x3 = e.get(Health)
+let x3 = e.getComponent(Health)
 assert x3.amount == 90
-let x4 = (Health)e.get("Health")
-assert x4.amount == 90
 ```
 
 ## #TODO
+- [x] ~~Update the repository to the current state~~
 - [ ] Add World
+- [ ] Remove entity/component
+- [ ] Separated component sequences
+- [ ] Using a previously released ID
 - [ ] Iterating through the entity by several components
+- [ ] Optimizations!!!
