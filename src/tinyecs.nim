@@ -1,2 +1,2 @@
-import tinyecs/[entity, component]
-export entity, component
+import tinyecs/[world, entity, component]
+export world, entity, component

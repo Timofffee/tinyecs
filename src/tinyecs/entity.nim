@@ -1,23 +1,14 @@
 import strutils
-import types
+import types, world
 export types
 
-var maxEntityId = -1
+proc initEntity*(e: Entity, w: World): void =
+  e.id = w.getNewID()
+  e.world = w
 
-# forward decl.
-proc initEntity*(e: Entity)
-
-proc newEntity*() : Entity =
+proc newEntity*(w: World): Entity =
   result = Entity()
-  result.initEntity()
-
-proc initEntity*(e:Entity) =
-  inc maxEntityId
-  e.id = maxEntityId
-  e.components = newSeq[Component]()
-  
-proc id*(e:Entity): int = 
-  e.id
+  result.initEntity(w)
 
 proc `$`*(e:Entity): string =
-  "Entity<id=$1>".format(e.id)
+  "Entity<id=$1>".format(e)
